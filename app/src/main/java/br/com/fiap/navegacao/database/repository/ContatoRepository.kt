@@ -4,25 +4,31 @@ import ContatoDb
 import android.content.Context
 import br.com.fiap.navegacao.model.Contato
 
+
+
+
 class ContatoRepository(context: Context) {
-    var db = ContatoDb.getDatabase(context).contatoDao()
-    fun salvar(contato:Contato): Long{
-        return  db.salvar(contato = contato)
-    }
-    fun atualizar(contato:Contato): Int{
-        return  db.atualizar(contato = contato)
+
+    private val db = ContatoDb.getDatabase(context).contatoDao()
+
+    fun salvar(contato: Contato): Long {
+        return db.salvar(contato)
     }
 
-    fun excluir(contato:Contato): Int{
-        return  db.excluir(contato = contato)
+    fun atualizar(contato: Contato): Int {
+        return db.atualizar(contato)
     }
 
-    fun buscar(id:Long): Contato{
-        return  db.buscarContatoPeloID(id = id)
+    fun excluir(contato: Contato): Int {
+        return db.excluir(contato)
     }
 
-    fun listarTodos(): List<Contato>{
-        return  db.listarContatos()
+    fun listarContatos(): List<Contato> {
+        return db.listarContatos()
+    }
+
+    fun buscarContatoPeloId(id: Int): Contato? {
+        return db.buscarContatoPeloId(id)
     }
 
 }

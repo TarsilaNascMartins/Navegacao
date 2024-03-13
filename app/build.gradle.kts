@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
 }
 
@@ -49,7 +49,6 @@ android {
         }
     }
 }
-
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -68,16 +67,11 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    //recurso do Navigation
-    implementation("androidx.navigation:navigation-compose:2.6.0")
-
-    //recursos de animação
-    implementation ("com.google.accompanist:accompanist-navigation-animation:0.30.1")
-
-
     // Room DEPENDENCIES
-    implementation ("androidx.room:room-runtime:2.5.2")
-    annotationProcessor ("androidx.room:room-compiler:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
-}
+    implementation ("androidx.room:room-runtime:2.6.1")
+    annotationProcessor ("androidx.room:room-compiler:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
 
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+}

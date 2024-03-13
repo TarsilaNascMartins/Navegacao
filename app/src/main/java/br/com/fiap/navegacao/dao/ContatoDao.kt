@@ -6,20 +6,24 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import br.com.fiap.navegacao.model.Contato
+
+
 @Dao
 interface ContatoDao {
-@Insert
-    fun salvar(contato: Contato):Long
-@Update
+
+    @Insert
+    fun salvar(contato: Contato): Long
+
+    @Update
     fun atualizar(contato: Contato): Int
 
-@Delete
+    @Delete
+    fun excluir(contato: Contato): Int
 
-    fun excluir(contato: Contato):Int
+    @Query("SELECT * FROM tbl_contato WHERE id = :id")
+    fun buscarContatoPeloId(id: Int): Contato
 
-@Query("SELECT * FROM tbl_contato Where id= :id")
-    fun buscarContatoPeloID(id:Long):Contato
+    @Query("SELECT * FROM tbl_contato ORDER BY nome ASC")
+    fun listarContatos(): List<Contato>
 
-    @Query("SELECT * FROM TBL_CONTATO ORDER BY nome ASC")
-    fun listarContatos():List <Contato>
 }
